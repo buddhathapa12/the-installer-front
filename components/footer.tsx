@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
+import useStyles from '../utils/footer.styles';
 
 const Footer = () => {
-  return (
-    <div> &copy;2022 by the Installer</div>
-  )
-}
+  const classes = useStyles();
+  return <div className={classes.footer}> &copy;2022 by the Installer</div>;
+};
 
-export default Footer
+export default Footer;
