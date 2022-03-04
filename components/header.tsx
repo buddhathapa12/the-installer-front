@@ -17,7 +17,6 @@ const Header = () => {
                 <Image
                   src="/home/logo.png"
                   alt="logo"
-                  layout="responsive"
                   width={120}
                   height={90}
                 />
