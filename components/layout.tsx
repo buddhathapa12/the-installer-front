@@ -1,9 +1,16 @@
-import React from 'react'
+import React from 'react';
+import Footer from './footer';
+import Header from './header';
 
-function Layout() {
+function Layout(props: any) {
+  const { children } = props;
   return (
-    <div>Layout</div>
-  )
+    <>
+      <Header />
+      {children}
+      <Footer />
+    </>
+  );
 }
 
-export default Layout
+export default Layout;

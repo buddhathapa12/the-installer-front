@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <div>
       <div>
-        <AppBar>
+        <AppBar position="static">
           <CssBaseline />
           <Toolbar>
             <div>
@@ -20,7 +20,9 @@ const Header = () => {
               </Link>
             </div>
             <div>
-              <Typography>The Installer</Typography>
+              <Typography>
+                <Link href="/">The Installer</Link>
+              </Typography>
             </div>
             <div>
               <Link href="/">
