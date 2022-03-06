@@ -1,8 +1,8 @@
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles } from "@material-ui/styles";
 
 const useStyles = makeStyles({
   footer: {
-    textAlign: 'center',
+    textAlign: "center",
     fontWeight: 900,
   },
 });

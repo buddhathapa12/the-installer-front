@@ -1,8 +1,8 @@
-import { AppBar, CssBaseline, Toolbar, Typography } from '@material-ui/core';
-import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import useStyles from '../utils/header.styles';
+import { AppBar, CssBaseline, Toolbar, Typography } from "@material-ui/core";
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import useStyles from "../utils/header.styles";
 
 const Header = () => {
   const classes = useStyles();
@@ -14,12 +14,7 @@ const Header = () => {
           <div className={classes.logo}>
             <Link href="/" passHref>
               <a>
-                <Image
-                  src="/home/logo.png"
-                  alt="logo"
-                  width={120}
-                  height={90}
-                />
+                <Image src="/home/logo.png" alt="logo" width={120} height={90} />
               </a>
             </Link>
           </div>
