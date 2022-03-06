@@ -1,11 +1,130 @@
-import { AppBar, CssBaseline, Toolbar, Typography } from "@material-ui/core";
-import React from "react";
+import { AppBar, CssBaseline, IconButton, Toolbar, Typography } from "@material-ui/core";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import useStyles from "../utils/header.styles";
+import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
+import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
+import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 
 const Header = () => {
+  const [mobileView, setmobileView] = useState(false);
+  const [active, setActive] = useState(false);
+  const [activeHamBurger, setActiveHamBurger] = useState(false);
+
+  useEffect(() => {
+    const setResponsiveness = () => {
+      return window.innerWidth < 900 ? setmobileView(true) : setmobileView(false);
+    };
+
+    setResponsiveness();
+    window.addEventListener("resize", () => setResponsiveness());
+
+    return () => {
+      window.removeEventListener("resize", () => setResponsiveness());
+    };
+  }, []);
+
   const classes = useStyles();
+
+  const displayDesktop = () => {
+    return (
+      <ul className={classes.navbarList}>
+        <li className={classes.navbarItemCont}>
+          <Link href="/">
+            <a className={classes.navbarItem}>Home</a>
+          </Link>
+        </li>
+        <li className={classes.navbarItemCont}>
+          <Link href="/bookOnline">
+            <a className={classes.navbarItem}>Book Online</a>
+          </Link>
+        </li>
+        <li className={classes.navbarItemCont}>
+          <Link href="/about">
+            <a className={classes.navbarItem}>About</a>
+          </Link>
+        </li>
+        <li className={classes.navbarItemCont}>
+          <Link href="/projects">
+            <a className={classes.navbarItem}>Projects</a>
+          </Link>
+        </li>
+        <li className={classes.navbarItemCont}>
+          <Link href="/contact">
+            <a className={classes.navbarItem}>Contact</a>
+          </Link>
+        </li>
+        <li className={classes.navbarItemCont}>
+          <Link href="/shop">
+            <a className={classes.navbarItem}>Shop</a>
+          </Link>
+        </li>
+      </ul>
+    );
+  };
+
+  const displayMobile = () => {
+    return (
+      <Toolbar
+        className={classes.mobileViewCont}
+        onClick={() => {
+          setActive(!active);
+        }}
+      >
+        {active ? (
+          <CloseOutlinedIcon
+            onClick={() => {
+              setActiveHamBurger(!activeHamBurger);
+            }}
+          />
+        ) : (
+          <MenuOutlinedIcon
+            onClick={() => {
+              setActiveHamBurger(!activeHamBurger);
+            }}
+          />
+        )}
+      </Toolbar>
+    );
+  };
+
+  const hamBurgerList = () => {
+    return (
+      <ul className={classes.hamBurgerCont}>
+        <li className={classes.hamBurgerMenuItem}>
+          <Link href="/">
+            <a>Home</a>
+          </Link>
+        </li>
+        <li className={classes.hamBurgerMenuItem}>
+          <Link href="/bookOnline">
+            <a>Book Online</a>
+          </Link>
+        </li>
+        <li className={classes.hamBurgerMenuItem}>
+          <Link href="/about">
+            <a>About</a>
+          </Link>
+        </li>
+        <li className={classes.hamBurgerMenuItem}>
+          <Link href="/projects">
+            <a>Projects</a>
+          </Link>
+        </li>
+        <li className={classes.hamBurgerMenuItem}>
+          <Link href="/contact">
+            <a>Contact</a>
+          </Link>
+        </li>
+        <li className={classes.hamBurgerMenuItem}>
+          <Link href="/shop">
+            <a>Shop</a>
+          </Link>
+        </li>
+      </ul>
+    );
+  };
   return (
     <div>
       <AppBar className={classes.navbar}>
@@ -23,49 +142,17 @@ const Header = () => {
               <Link href="/">The Installer</Link>
             </Typography>
           </div>
-
-          <div className={classes.navbarCont}>
-            <ul className={classes.navbarList}>
-              <li className={classes.navbarItemCont}>
-                <Link href="/">
-                  <a className={classes.navbarItem}>Home</a>
-                </Link>
-              </li>
-              <li className={classes.navbarItemCont}>
-                <Link href="/bookOnline">
-                  <a className={classes.navbarItem}>Book Online</a>
-                </Link>
-              </li>
-              <li className={classes.navbarItemCont}>
-                <Link href="/about">
-                  <a className={classes.navbarItem}>About</a>
-                </Link>
-              </li>
-              <li className={classes.navbarItemCont}>
-                <Link href="/projects">
-                  <a className={classes.navbarItem}>Projects</a>
-                </Link>
-              </li>
-              <li className={classes.navbarItemCont}>
-                <Link href="/contact">
-                  <a className={classes.navbarItem}>Contact</a>
-                </Link>
-              </li>
-              <li className={classes.navbarItemCont}>
-                <Link href="/shop">
-                  <a className={classes.navbarItem}>Shop</a>
-                </Link>
-              </li>
-            </ul>
-          </div>
+          <div className={classes.navbarCont}>{mobileView ? displayMobile() : displayDesktop()}</div>
           <div className={classes.cartCont}>
             <div className={classes.cart}>
-              <span>price</span>
-              <span className={classes.cartIcon}>Hello</span>
+              <span className={classes.cartIcon}>
+                <ShoppingBagOutlinedIcon />
+              </span>
             </div>
           </div>
         </Toolbar>
       </AppBar>
+      {activeHamBurger ? hamBurgerList() : null}
     </div>
   );
 };

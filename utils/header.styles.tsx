@@ -67,7 +67,99 @@ const useStyles = makeStyles({
 
   cartIcon: {
     color: "#ffffff",
+    fontSize: "30px",
+    "&:hover": {
+      color: "red",
+    },
+    "&::before": {},
+  },
+
+  hamBurgerCont: {
+    backgroundColor: "#000000",
+    margin: 0,
+    padding: 0,
+    listStyleType: "none",
+  },
+
+  mobileViewCont: {
+    justifyContent: "center",
+  },
+  hamBurgerMenuItem: {
+    textAlign: "center",
+    color: "#ffffff",
+    fontFamily: "Sans-serif",
+    "&:hover": {
+      backgroundColor: "#ffffff",
+      "& a": {
+        color: "#000000",
+      },
+    },
   },
 });
 
 export default useStyles;
+
+//  hamBurgerCont: {
+//     justifyContent: "center",
+//   },
+//   hamBurgerMenu: {
+//     width: "30px",
+//     height: "3px",
+//     background: "#fff",
+//     borderRadius: "5px",
+//     boxShadow: "0 2px 5px rgb(255, 101, 47, .2)",
+//     transition: "all 0.5s ease-in-out",
+//     "&::before": {
+//       content: "''",
+//       position: "absolute",
+//       width: "30px",
+//       height: "3px",
+//       background: "#fff",
+//       borderRadius: "5px",
+//       boxShadow: "0 2px 5px rgb(255, 101, 47, .2)",
+//       transition: "all 0.5s ease-in-out",
+//       transform: "translateY(-10px)",
+//     },
+//     "&::after": {
+//       content: "''",
+//       position: "absolute",
+//       width: "30px",
+//       height: "3px",
+//       background: "#fff",
+//       borderRadius: "5px",
+//       boxShadow: "0 2px 5px rgb(255, 101, 47, .2)",
+//       transition: "all 0.5s ease-in-out",
+//       transform: "translateY(10px)",
+//     },
+//   },
+
+//   activeHamburgerMenu: {
+//     width: "30px",
+//     height: "3px",
+//     background: "transparent",
+//     borderRadius: "5px",
+//     transform: "translateX(-50px)",
+//     boxShadow: "0 2px 5px rgb(255, 101, 47, .2)",
+//     transition: "all 0.5s ease-in-out",
+//     "&::before": {
+//       content: "''",
+//       position: "absolute",
+//       width: "30px",
+//       height: "3px",
+//       background: "#fff",
+//       borderRadius: "5px",
+//       transition: "all 0.5s ease-in-out",
+//       transform: "rotate(45deg) translate(35px, -35px)",
+//     },
+//     "&::after": {
+//       content: "''",
+//       position: "absolute",
+//       width: "30px",
+//       height: "3px",
+//       background: "#fff",
+//       borderRadius: "5px",
+//       boxShadow: "0 2px 5px rgb(255, 101, 47, .2)",
+//       transition: "all 0.5s ease-in-out",
+//       transform: "rotate(-45deg) translate(35px, 35px)",
+//     },
+//   },
