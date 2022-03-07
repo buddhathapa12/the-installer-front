@@ -1,6 +1,8 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document';
+import { ServerStyleSheets } from "@material-ui/core/styles";
+import Document, { Html, NextScript, Head, Main } from "next/document";
+import React from "react";
 
-class MyDocument extends Document {
+export default class MyDocument extends Document {
   render() {
     return (
       <Html>
@@ -12,7 +14,7 @@ class MyDocument extends Document {
           />
         </Head>
         <body>
-          <Main />
+          <Main></Main>
           <NextScript />
         </body>
       </Html>
