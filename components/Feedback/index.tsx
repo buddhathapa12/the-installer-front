@@ -43,27 +43,10 @@ const FeedbackCarousel: NextPage<IFeedbackCarousel> = (props) => {
         {props.data.map((item, index) => {
           return (
             <Box key={index} className={styles.feedbackContainer} height={props.height}>
-              <Typography
-                className={styles.feedback}
-                style={{
-                  fontSize: "1.3rem",
-                  fontFamily: '"Poppins", Sans-serif',
-                }}
-                align="center"
-              >
+              <Typography className={styles.feedback} align="center">
                 {item.feedback}
               </Typography>
-              <Typography
-                className={styles.author}
-                style={{
-                  fontSize: "14px",
-                  fontWeight: 600,
-                  marginTop: "25px",
-                  fontFamily: '"Poppins", Sans-serif',
-                }}
-              >
-                {item.author}
-              </Typography>
+              <Typography className={styles.author}>{item.author}</Typography>
             </Box>
           );
         })}

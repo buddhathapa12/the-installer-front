@@ -3,7 +3,7 @@ import { makeStyles } from "@mui/styles";
 const useStyles = makeStyles({
   footer: {
     textAlign: "center",
-    fontWeight: 900,
+    fontWeight: 400,
   },
 });
 

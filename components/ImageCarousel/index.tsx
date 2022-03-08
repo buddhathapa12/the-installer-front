@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import type { NextPage } from "next";
 import Link from "next/link";
 import Carousel from "react-material-ui-carousel";
@@ -52,8 +52,8 @@ const ImageCarousel: NextPage<IImageCarousel> = (props) => {
             }}
           >
             <Box className={styles.content}>
-              <p className={styles.title}>{item.title}</p>
-              <p className={styles.description}>{item.description}</p>
+              <Typography className={styles.title}>{item.title}</Typography>
+              <Typography className={styles.description}>{item.description}</Typography>
               <Box
                 className={`${styles.link} ${styles.learnMore} ${
                   index === 0 ? styles.borderWhite : styles.borderBlack

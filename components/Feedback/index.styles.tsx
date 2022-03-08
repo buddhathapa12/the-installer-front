@@ -1,6 +1,6 @@
 import { makeStyles } from "@mui/styles";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(() => ({
   carousel: {
     width: "100%",
     height: "100%",
@@ -23,7 +23,6 @@ const useStyles = makeStyles({
     fontWeight: 400,
     color: "white",
     fontStyle: "italic",
-    fontFamily: '"Poppins", Sans-serif',
     fontSize: "20.8px",
     lineHeight: 1.5,
     margin: "0px",
@@ -35,7 +34,6 @@ const useStyles = makeStyles({
     fontSize: "14px",
     lineHeight: 1.5,
     fontStyle: "normal",
-    fontFamily: '"Poppins", Sans-serif',
     margin: "0px",
     marginTop: "25px",
   },
@@ -60,6 +58,6 @@ const useStyles = makeStyles({
     backgroundColor: "transparent",
     transform: "scale3d(1.5,1.5,1.5)",
   },
-});
+}));
 
 export default useStyles;

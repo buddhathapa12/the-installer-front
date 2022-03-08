@@ -12,7 +12,6 @@ const useStyles = makeStyles(() => ({
   feedbackHeading: {
     color: "white",
     fontSize: "40px",
-    fontFamily: "'Poppins', Sans-serif",
     fontWeight: 600,
     height: 70,
     marginBottom: "10px",

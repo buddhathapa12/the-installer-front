@@ -1,6 +1,6 @@
 import { makeStyles } from "@mui/styles";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(() => ({
   backgroundImage: {
     width: "100%",
     height: "100%",
@@ -24,7 +24,6 @@ const useStyles = makeStyles({
   },
 
   title: {
-    fontFamily: '"Poppins", Sans-serif',
     fontSize: "48px",
     fontWeight: 600,
     lineHeight: 1,
@@ -32,7 +31,6 @@ const useStyles = makeStyles({
   },
 
   description: {
-    fontFamily: '"Poppins", Sans-serif',
     fontSize: "28px",
     fontWeight: 500,
     lineHeight: 1.4,
@@ -84,6 +82,6 @@ const useStyles = makeStyles({
   navButtons: {
     backgroundColor: "transparent",
   },
-});
+}));
 
 export default useStyles;

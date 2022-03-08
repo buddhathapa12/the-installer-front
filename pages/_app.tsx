@@ -4,7 +4,11 @@ import Layout from "../components/layout";
 import { useEffect } from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-const theme = createTheme({});
+const theme = createTheme({
+  typography: {
+    fontFamily: '"Poppins", Sans-serif',
+  },
+});
 
 function MyApp({ Component, pageProps }: AppProps) {
   //this is done for instance reflection of changes in code into browser

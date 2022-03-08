@@ -1,4 +1,4 @@
-import { AppBar, CssBaseline, IconButton, Toolbar, Typography } from "@mui/material";
+import { AppBar, CssBaseline, Toolbar, Typography } from "@mui/material";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
