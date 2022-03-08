@@ -5,6 +5,8 @@ import FeedbackCarousel from "../../components/Feedback";
 import { feedbackData } from "../../fixtures/HomePage/feedbacks";
 import useStyles from "./index.styles";
 import { Box, Typography } from "@mui/material";
+import EmailIcon from "@mui/icons-material/Email";
+import Link from "next/link";
 
 const Home: NextPage = () => {
   const styles = useStyles();
@@ -18,6 +20,24 @@ const Home: NextPage = () => {
           </Typography>
           <FeedbackCarousel height="188px" data={feedbackData} />
         </Box>
+      </Box>
+      <Box width={1} className={styles.contactUsContainer} padding="10px">
+        <Typography component="h2" className={styles.contactUsHeading}>
+          Contact Us
+        </Typography>
+        <Typography className={styles.contactUsText}>
+          Do you have a project in mind? Get in touch today and let our experts help get the job done right.
+        </Typography>
+        <Typography className={styles.contactUsText}>Port McNicoll On</Typography>
+        <div>
+          <div className={styles.contactUsEmailSection}>
+            <EmailIcon />
+
+            <Typography className={styles.emailContainer}>
+              <Link href="mailto:rb@theinstaller.me">rb@theinstaller.me</Link>
+            </Typography>
+          </div>
+        </div>
       </Box>
     </Box>
   );

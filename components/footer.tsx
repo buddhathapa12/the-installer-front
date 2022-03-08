@@ -18,7 +18,9 @@ const Footer = () => {
             <div className={classes.contactNumberLogo}>
               <CallIcon />
             </div>
-            <div className={classes.contactNumber}>705-209-6525</div>
+            <div className={classes.contactNumber}>
+              <Link href="tel:705-209-6525">705-209-6525</Link>
+            </div>
           </div>
           <div className={classes.navbarCont}>
             <ul className={classes.navbarList}>

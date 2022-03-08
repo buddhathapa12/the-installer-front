@@ -26,6 +26,7 @@ const useStyles = makeStyles({
   },
   contactNumberLogo: {
     alignItems: "flex-end",
+    transform: "scale(1.5)",
   },
   contactNumber: {
     fontSize: "25px",
@@ -49,6 +50,7 @@ const useStyles = makeStyles({
     flexGrow: 1,
     textAlign: "center",
     borderRadius: "10%",
+    transform: "scale(1.4)",
     "&:hover": {
       backgroundColor: "red",
     },
