@@ -62,6 +62,7 @@ const useStyles = makeStyles({
 
   cart: {
     backgroundColor: "transparent",
+    transform: "scale(1.5)",
     // display: 'inline-block',
   },
 
