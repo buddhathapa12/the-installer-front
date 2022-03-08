@@ -1,9 +1,9 @@
 import { Box } from "@material-ui/core";
 import type { NextPage } from "next";
 import Link from "next/link";
-import styles from "./styles.module.css";
 import Carousel from "react-material-ui-carousel";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
+import useStyles from "./imageCarousel.styles";
 
 interface IBannerData {
   title: string;
@@ -17,6 +17,7 @@ interface IImageCarousel {
 }
 
 const ImageCarousel: NextPage<IImageCarousel> = (props) => {
+  const styles = useStyles();
   return (
     <Carousel
       className={styles.carousel}
@@ -28,37 +29,25 @@ const ImageCarousel: NextPage<IImageCarousel> = (props) => {
       animation="slide"
       IndicatorIcon={<FiberManualRecordIcon style={{ color: "white", width: "12px", height: "12px" }} />}
       indicatorContainerProps={{
-        style: {
-          position: "relative",
-          bottom: "35px",
-        },
+        className: styles.indicatorContainer,
       }}
       indicatorIconButtonProps={{
-        style: {
-          margin: "0px 4px",
-          zIndex: 1,
-          opacity: 0.5,
-        },
+        className: styles.indicatorIconButton,
       }}
       activeIndicatorIconButtonProps={{
-        style: {
-          opacity: 1,
-        },
+        className: styles.activeIndicatorIconButton,
       }}
       navButtonsProps={{
-        style: {
-          backgroundColor: "transparent",
-        },
+        className: styles.navButtons,
       }}
     >
       {props.data.map((item, index) => {
         return (
           <Box
             key={`${item.backgroundImageUrl}-${index}`}
-            className={styles.backgroundImage}
+            className={`${styles.backgroundImage} ${index === 0 ? styles.textWhite : styles.textBlack}`}
             style={{
               backgroundImage: `url(${item.backgroundImageUrl})`,
-              color: index === 0 ? "white" : "black",
               height: props.height,
             }}
           >
@@ -66,10 +55,9 @@ const ImageCarousel: NextPage<IImageCarousel> = (props) => {
               <p className={styles.title}>{item.title}</p>
               <p className={styles.description}>{item.description}</p>
               <Box
-                className={`${styles.link} ${styles.learnMore}`}
-                style={{
-                  borderColor: index === 0 ? "white" : "black",
-                }}
+                className={`${styles.link} ${styles.learnMore} ${
+                  index === 0 ? styles.borderWhite : styles.borderBlack
+                }`}
               >
                 <Link href="/bookOnline">Learn More</Link>
               </Box>
