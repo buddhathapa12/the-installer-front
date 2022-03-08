@@ -15,9 +15,22 @@ const useStyles = makeStyles({
     justifyContent: "space-around",
     alignItems: "center",
     flexDirection: "row",
+    marginRight: "auto",
+    marginLeft: "auto",
   },
   ContactNumberCont: {
     width: "21.726%",
+    display: "flex",
+    flexDirection: "row",
+    paddingLeft: "5%",
+  },
+  contactNumberLogo: {
+    alignItems: "flex-end",
+  },
+  contactNumber: {
+    fontSize: "25px",
+    fontWeight: 600,
+    fontFamily: "Sans-serif",
   },
   navbarCont: {
     width: "61.393%",
