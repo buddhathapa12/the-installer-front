@@ -1,8 +1,8 @@
 import { Box, Typography } from "@material-ui/core";
 import type { NextPage } from "next";
-import styles from "./styles.module.css";
 import Carousel from "react-material-ui-carousel";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
+import useStyles from "./index.styles";
 
 interface IFeedbackData {
   feedback: string;
@@ -15,6 +15,7 @@ interface IFeedbackCarousel {
 }
 
 const FeedbackCarousel: NextPage<IFeedbackCarousel> = (props) => {
+  const styles = useStyles();
   return (
     <Box height={props.height}>
       <Carousel
@@ -27,38 +28,21 @@ const FeedbackCarousel: NextPage<IFeedbackCarousel> = (props) => {
         animation="slide"
         IndicatorIcon={<FiberManualRecordIcon style={{ color: "white", width: "12px", height: "12px" }} />}
         indicatorContainerProps={{
-          style: {
-            position: "relative",
-            bottom: "35px",
-          },
+          className: styles.indicatorContainer,
         }}
         indicatorIconButtonProps={{
-          style: {
-            margin: "0px 4px",
-            zIndex: 1,
-            opacity: 0.5,
-          },
+          className: styles.indicatorIconButton,
         }}
         activeIndicatorIconButtonProps={{
-          style: {
-            opacity: 1,
-          },
-        }}
-        navButtonsWrapperProps={{
-          style: {
-            height: props.height,
-            backgroundColor: "black",
-          },
+          className: styles.activeIndicatorIconButton,
         }}
         navButtonsProps={{
-          style: {
-            backgroundColor: "transparent",
-          },
+          className: styles.navButtons,
         }}
       >
         {props.data.map((item, index) => {
           return (
-            <Box key={index} className={styles.feedbackContainer} height={props.height} paddingX="5%">
+            <Box key={index} className={styles.feedbackContainer} height={props.height}>
               <Typography
                 className={styles.feedback}
                 style={{
