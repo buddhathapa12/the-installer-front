@@ -70,14 +70,11 @@ const useStyles = makeStyles({
   footer: {
     textAlign: "center",
     fontWeight: 400,
-<<<<<<< HEAD
-=======
     fontSize: "15px",
     color: "#ffffff",
     marginTop: 0,
     marginBottom: "0.9rem",
     fontFamily: "Poppins",
->>>>>>> feature/THIN-7
   },
 });
 

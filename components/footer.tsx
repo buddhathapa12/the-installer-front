@@ -1,4 +1,4 @@
-import { AppBar, CssBaseline, Toolbar } from "@material-ui/core";
+import { AppBar, CssBaseline, Toolbar } from "@mui/material";
 import React from "react";
 import useStyles from "../utils/footer.styles";
 import Link from "next/link";
