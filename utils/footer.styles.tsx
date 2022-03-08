@@ -43,6 +43,7 @@ const useStyles = makeStyles({
     display: "flex",
     justifyContent: "space-around",
     alignItems: "center",
+    paddingRight: "5%",
   },
   socialHandleItemCont: {
     flexGrow: 1,
