@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { Typography } from "@mui/material";
-=======
 import { AppBar, CssBaseline, Toolbar } from "@material-ui/core";
->>>>>>> feature/THIN-7
 import React from "react";
 import useStyles from "../utils/footer.styles";
 import Link from "next/link";
@@ -12,9 +8,6 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 const Footer = () => {
   const classes = useStyles();
-<<<<<<< HEAD
-  return <Typography className={classes.footer}> &copy;2022 by the Installer</Typography>;
-=======
   return (
     <div className={classes.footerCont}>
       <AppBar className={classes.navbar}>
@@ -66,7 +59,6 @@ const Footer = () => {
       </div>
     </div>
   );
->>>>>>> feature/THIN-7
 };
 
 export default Footer;
