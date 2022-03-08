@@ -7,12 +7,14 @@ import useStyles from "./index.styles";
 import { Box, Typography } from "@mui/material";
 import EmailIcon from "@mui/icons-material/Email";
 import Link from "next/link";
+import AboutUsText from "../../components/aboutUs/aboutUsText";
 
 const Home: NextPage = () => {
   const styles = useStyles();
   return (
     <Box>
       <ImageCarousel height="500px" data={bannerData} />
+      <AboutUsText />
       <Box width={1} className={styles.feedbackContainer} padding="10px">
         <Box width={1} maxWidth="1140px">
           <Typography component="h2" align="center" className={styles.feedbackHeading}>
@@ -21,6 +23,7 @@ const Home: NextPage = () => {
           <FeedbackCarousel height="188px" data={feedbackData} />
         </Box>
       </Box>
+      <Box></Box>
       <Box width={1} className={styles.contactUsContainer} padding="10px">
         <Typography component="h2" className={styles.contactUsHeading}>
           Contact Us
@@ -32,7 +35,6 @@ const Home: NextPage = () => {
         <div>
           <div className={styles.contactUsEmailSection}>
             <EmailIcon />
-
             <Typography className={styles.emailContainer}>
               <Link href="mailto:rb@theinstaller.me">rb@theinstaller.me</Link>
             </Typography>
