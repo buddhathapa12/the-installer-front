@@ -1,6 +1,6 @@
-import { makeStyles } from "@material-ui/styles";
+import { makeStyles } from "@mui/styles";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(() => ({
   feedbackContainer: {
     backgroundColor: "black",
     display: "flex",
@@ -21,6 +21,6 @@ const useStyles = makeStyles({
     justifyContent: "center",
     alignItems: "flex-end",
   },
-});
+}));
 
 export default useStyles;

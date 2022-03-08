@@ -2,6 +2,9 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import Layout from "../components/layout";
 import { useEffect } from "react";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+
+const theme = createTheme({});
 
 function MyApp({ Component, pageProps }: AppProps) {
   //this is done for instance reflection of changes in code into browser
@@ -12,9 +15,11 @@ function MyApp({ Component, pageProps }: AppProps) {
     }
   }, []);
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <ThemeProvider theme={theme}>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </ThemeProvider>
   );
 }
 

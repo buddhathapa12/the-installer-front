@@ -1,4 +1,4 @@
-import { Box, Typography } from "@material-ui/core";
+import { Box, Typography } from "@mui/material";
 import type { NextPage } from "next";
 import Carousel from "react-material-ui-carousel";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";

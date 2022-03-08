@@ -1,4 +1,4 @@
-import { Box } from "@material-ui/core";
+import { Box } from "@mui/material";
 import type { NextPage } from "next";
 import Link from "next/link";
 import Carousel from "react-material-ui-carousel";
