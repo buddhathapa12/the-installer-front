@@ -8,6 +8,10 @@ const useStyles = makeStyles({
     borderColor: "#ffffff",
     padding: "10px 0px 10px 0px",
   },
+  footerUpperCont: {
+    // paddingLeft: "7%",
+    // paddingRight: "7%",
+  },
   navbar: {
     position: "relative",
     backgroundColor: "inherit",
@@ -20,13 +24,15 @@ const useStyles = makeStyles({
   },
   ContactNumberCont: {
     width: "21.726%",
-    display: "flex",
+    display: "inline-flex",
     flexDirection: "row",
     paddingLeft: "5%",
+    justifyContent: "end",
   },
   contactNumberLogo: {
     alignItems: "flex-end",
     transform: "scale(1.5)",
+    paddingTop: "5px",
   },
   contactNumber: {
     fontSize: "25px",
@@ -42,15 +48,18 @@ const useStyles = makeStyles({
   socialHandleCont: {
     width: "16.097%",
     display: "flex",
-    justifyContent: "space-around",
+    justifyContent: "flex-start",
     alignItems: "center",
-    paddingRight: "5%",
+    padding: "10px",
   },
   socialHandleItemCont: {
-    flexGrow: 1,
-    textAlign: "center",
     borderRadius: "10%",
     transform: "scale(1.4)",
+    textAlign: "center",
+    paddingTop: "5px",
+    width: "33px",
+    float: "right",
+    margin: "5%",
     "&:hover": {
       backgroundColor: "red",
     },

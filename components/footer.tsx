@@ -11,7 +11,7 @@ const Footer = () => {
   const classes = useStyles();
   return (
     <div className={classes.footerCont}>
-      <div>
+      <div className={classes.footerUpperCont}>
         <AppBar className={classes.navbar}>
           <CssBaseline />
           <div className={classes.ContactNumberCont}>
@@ -52,15 +52,15 @@ const Footer = () => {
             </ul>
           </div>
           <div className={classes.socialHandleCont}>
-            <span className={classes.socialHandleItemCont}>
+            <div className={classes.socialHandleItemCont}>
               <FacebookOutlinedIcon />
-            </span>
-            <span className={classes.socialHandleItemCont}>
+            </div>
+            <div className={classes.socialHandleItemCont}>
               <TwitterIcon />
-            </span>
-            <span className={classes.socialHandleItemCont}>
+            </div>
+            <div className={classes.socialHandleItemCont}>
               <LinkedInIcon />
-            </span>
+            </div>
           </div>
         </AppBar>
       </div>
