@@ -8,13 +8,14 @@ import { Box, Typography } from "@mui/material";
 import EmailIcon from "@mui/icons-material/Email";
 import Link from "next/link";
 import AboutUsText from "../../components/aboutUs/aboutUsText";
+import { aboutUsDetailData } from "../../fixtures/AboutUs/aboutUsDetailData";
 
 const Home: NextPage = () => {
   const styles = useStyles();
   return (
     <Box>
       <ImageCarousel height="500px" data={bannerData} />
-      <AboutUsText />
+      <AboutUsText data={aboutUsDetailData} />
       <Box width={1} className={styles.feedbackContainer} padding="10px">
         <Box width={1} maxWidth="1140px">
           <Typography component="h2" align="center" className={styles.feedbackHeading}>

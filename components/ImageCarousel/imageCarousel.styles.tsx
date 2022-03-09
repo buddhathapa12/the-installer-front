@@ -11,7 +11,7 @@ const useStyles = makeStyles(() => ({
 
   carousel: {
     width: "100%",
-    height: "100%",
+    height: "500px",
   },
 
   content: {
