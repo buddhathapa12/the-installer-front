@@ -38,6 +38,9 @@ const useStyles = makeStyles({
     marginLeft: "auto",
     marginRight: "auto",
     transform: "scale(3)",
+    "&:hover": {
+      transform: "scale(3.5)",
+    },
   },
   serviceName: {
     fontWeight: 600,
