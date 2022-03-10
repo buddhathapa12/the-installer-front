@@ -22,6 +22,16 @@ const useStyles = makeStyles({
     marginRight: "auto",
     marginLeft: "auto",
   },
+  navbarMobile: {
+    position: "relative",
+    backgroundColor: "inherit",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-around",
+    alignItems: "center",
+    marginRight: "auto",
+    marginLeft: "auto",
+  },
   ContactNumberCont: {
     width: "21.726%",
     display: "inline-flex",
@@ -29,10 +39,18 @@ const useStyles = makeStyles({
     paddingLeft: "5%",
     justifyContent: "end",
   },
+  ContactNumberMobileCont: {
+    display: "inline-flex",
+    flexDirection: "row",
+    paddingLeft: "5%",
+    justifyContent: "end",
+  },
+
   contactNumberLogo: {
     alignItems: "flex-end",
     transform: "scale(1.5)",
     paddingTop: "5px",
+    paddingRight: "5px",
   },
   contactNumber: {
     fontSize: "25px",
@@ -45,10 +63,23 @@ const useStyles = makeStyles({
     alignItems: "center",
     padding: "10px",
   },
+  navbarMobileCont: {
+    justifyContent: "space-around",
+    alignContent: "center",
+    alignItems: "center",
+    padding: "10px",
+  },
+
   socialHandleCont: {
     width: "16.097%",
     display: "flex",
     justifyContent: "flex-start",
+    alignItems: "center",
+    padding: "10px",
+  },
+  socialHandleMobileCont: {
+    display: "flex",
+    justifyContent: "space-around",
     alignItems: "center",
     padding: "10px",
   },
