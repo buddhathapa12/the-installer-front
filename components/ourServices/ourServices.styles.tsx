@@ -8,6 +8,7 @@ const useStyles = makeStyles({
     marginRight: "auto",
     display: "flex",
     flexDirection: "column",
+    color: "white",
   },
   ourServicesTitle: {
     textAlign: "center",

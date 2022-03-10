@@ -7,6 +7,7 @@ const useStyles = makeStyles({
     maxWidth: "1140px",
     marginLeft: "auto",
     marginRight: "auto",
+    color: "white",
   },
   aboutUsTitle: {
     fontSize: "2rem",
