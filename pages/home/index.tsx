@@ -9,7 +9,6 @@ import EmailIcon from "@mui/icons-material/Email";
 import Link from "next/link";
 import AboutUsText from "../../components/aboutUs/aboutUsText";
 import { aboutUsDetailData } from "../../fixtures/AboutUs/aboutUsDetailData";
-import { ourServicesData } from "../../fixtures/ourServices/ourServices";
 import OurServices from "../../components/ourServices/ourServices";
 
 const Home: NextPage = () => {
