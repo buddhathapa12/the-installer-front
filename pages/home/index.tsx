@@ -3,7 +3,6 @@ import ImageCarousel from "../../components/ImageCarousel";
 import { bannerData } from "../../fixtures/HomePage/bannerData";
 import FeedbackCarousel from "../../components/Feedback";
 import { feedbackData } from "../../fixtures/HomePage/feedbacks";
-import useStyles from "./index.styles";
 import { Box, Typography } from "@mui/material";
 import EmailIcon from "@mui/icons-material/Email";
 import Link from "next/link";
@@ -11,6 +10,7 @@ import AboutUsText from "../../components/aboutUs/aboutUsText";
 import { aboutUsDetailData } from "../../fixtures/AboutUs/aboutUsDetailData";
 import OurServices from "../../components/ourServices/ourServices";
 import GoogleMaps from "../../components/GoogleMaps";
+import useStyles from "../../utils/homepage/index.styles";
 
 const Home: NextPage = () => {
   const styles = useStyles();
