@@ -10,6 +10,7 @@ import Link from "next/link";
 import AboutUsText from "../../components/aboutUs/aboutUsText";
 import { aboutUsDetailData } from "../../fixtures/AboutUs/aboutUsDetailData";
 import OurServices from "../../components/ourServices/ourServices";
+import GoogleMaps from "../../components/GoogleMaps";
 
 const Home: NextPage = () => {
   const styles = useStyles();
@@ -26,7 +27,9 @@ const Home: NextPage = () => {
           <FeedbackCarousel height="188px" data={feedbackData} />
         </Box>
       </Box>
-      <Box></Box>
+      <Box className={styles.googleMapsWrapper}>
+        <GoogleMaps />
+      </Box>
       <Box width={1} className={styles.contactUsContainer} padding="10px">
         <Typography component="h2" className={styles.contactUsHeading}>
           Contact Us

@@ -21,6 +21,11 @@ const useStyles = makeStyles(() => ({
     alignItems: "flex-end",
   },
 
+  googleMapsWrapper: {
+    width: "100%",
+    height: 360,
+  },
+
   contactUsContainer: {
     backgroundColor: "black",
     display: "flex",
