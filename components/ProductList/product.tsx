@@ -26,41 +26,15 @@ const Product: NextPage<IProduct> = ({ ...props }) => {
           <Image src={props.imageUrl} alt={props.name} layout="fill" className={classes.image} />
         </Box>
       </Link>
-      <Box
-        style={{
-          color: "white",
-          display: "flex",
-          flexDirection: "column",
-          textAlign: "center",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <Typography
-          style={{
-            fontSize: 26,
-            fontWeight: 500,
-            marginBottom: 20,
-          }}
-        >
-          {props.name}
-        </Typography>
-        <Typography
-          style={{
-            fontSize: 16,
-            marginBottom: 20,
-          }}
-        >
-          {props.description}
-        </Typography>
+      <Box className={classes.contentWrapper}>
+        <Typography className={classes.title}>{props.name}</Typography>
+        <Typography className={classes.description}>{props.description}</Typography>
       </Box>
-      <Box
-        style={{
-          textAlign: "center",
-        }}
-      >
-        <ShrinkingButton title="Book Now" icon={<CalendarMonthIcon className={classes.calendarIcon} />} />
-      </Box>
+      <Link href={`products/${props.id}`}>
+        <Box className={classes.buttonWrapper} component="a">
+          <ShrinkingButton title="Book Now" icon={<CalendarMonthIcon className={classes.calendarIcon} />} />
+        </Box>
+      </Link>
     </Box>
   );
 };

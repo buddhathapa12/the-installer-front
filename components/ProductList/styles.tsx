@@ -52,14 +52,27 @@ const useStyles = makeStyles((theme: Theme) => ({
     aspectRatio: "1984/2005",
   },
 
-  bookNowButton: {
-    width: 152,
-    height: 44,
-    borderRadius: 5,
+  contentWrapper: {
     color: "white",
-    textTransform: "none",
-    transitionDuration: "10s",
-    backgroundColor: "#ED1C23",
+    display: "flex",
+    flexDirection: "column",
+    textAlign: "center",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+  title: {
+    fontSize: 26,
+    fontWeight: 500,
+    marginBottom: 20,
+  },
+  description: {
+    fontSize: 16,
+    marginBottom: 20,
+  },
+
+  buttonWrapper: {
+    textAlign: "center",
   },
 
   calendarIcon: {
