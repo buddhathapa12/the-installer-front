@@ -15,6 +15,13 @@ const useStyles = makeStyles({
   children: {
     flexGrow: 1,
   },
+  aboutUsCont: {
+    padding: "30px 0px 50px 0px",
+    alignItems: "center",
+    // marginLeft: "auto",
+    // marginRight: "auto",
+    color: "white",
+  },
 });
 
 export default useStyles;

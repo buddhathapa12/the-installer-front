@@ -1,14 +1,6 @@
 import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
-  aboutUsCont: {
-    padding: "30px 0px 50px 0px",
-    alignItems: "center",
-    maxWidth: "1140px",
-    marginLeft: "auto",
-    marginRight: "auto",
-    color: "white",
-  },
   aboutUsTitle: {
     fontSize: "2rem",
     fontWeight: 500,

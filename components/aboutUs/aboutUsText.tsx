@@ -14,7 +14,7 @@ interface IAboutUsDetail {
 const AboutUsText: NextPage<IAboutUsDetail> = (props) => {
   const classes = useStyles();
   return (
-    <Box className={classes.aboutUsCont}>
+    <Box>
       <Typography className={classes.aboutUsTitle}>About Us</Typography>
       <div className={classes.paragraphCont}>
         {props.data.map((item, index) => {

@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import React from "react";
 import ImageBanner from "../../components/ImageBanner";
 import AboutUsText from "../../components/aboutUs/aboutUsText";
@@ -19,7 +19,9 @@ const About = () => {
         titleFontSize="42px"
       />
       <Box className={`${classes.page} ${classes.backgroundImage}`}>
-        <AboutUsText data={aboutUsDetailData} />
+        <Container className={classes.aboutUsCont}>
+          <AboutUsText data={aboutUsDetailData} />
+        </Container>
         <ExperienceList data={ExperienceData} />
       </Box>
     </Box>
