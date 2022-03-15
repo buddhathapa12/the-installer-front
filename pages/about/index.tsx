@@ -17,6 +17,7 @@ const About = () => {
           backgroundImageUrl: "/static/images/about-us/plumbing-hero-pipes.jpg",
         }}
         titleFontSize="42px"
+        height="400px"
       />
       <Box className={`${classes.page} ${classes.backgroundImage}`}>
         <Container className={classes.aboutUsCont}>
