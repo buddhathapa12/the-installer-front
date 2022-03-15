@@ -1,6 +1,8 @@
 import { Box } from "@mui/material";
 import React from "react";
 import ImageBanner from "../../components/ImageBanner";
+import ProductList from "../../components/ProductList";
+import { ProductsData } from "../../fixtures/BookOnline/productList";
 
 const BookOnline = () => {
   return (
@@ -12,6 +14,9 @@ const BookOnline = () => {
         }}
         titleFontSize="42px"
       />
+      <Box>
+        <ProductList data={ProductsData} />
+      </Box>
     </Box>
   );
 };
