@@ -1,6 +1,7 @@
 import { makeStyles } from "@mui/styles";
+import { Theme } from "@mui/material";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme: Theme) => ({
   container: {
     maxWidth: 1250,
   },
@@ -12,11 +13,22 @@ const useStyles = makeStyles({
     marginBottom: "50px",
   },
   experienceCont: {
-    maxWidth: "50%",
+    maxWidth: "600px",
     margin: "auto",
     textAlign: "center",
     padding: "10px",
     paddingBottom: "50px",
+    flexGrow: 1,
+    [theme.breakpoints.down("md")]: {
+      height: "650px",
+      width: "470px",
+      flexDirection: "column",
+    },
+    [theme.breakpoints.down("sm")]: {
+      height: "450px",
+      width: "607px",
+      flexDirection: "column",
+    },
   },
   experienceTitle: {
     color: "#000000",
@@ -30,6 +42,6 @@ const useStyles = makeStyles({
     marginBottom: "0.9rem",
     textAlign: "center",
   },
-});
+}));
 
 export default useStyles;
