@@ -1,6 +1,6 @@
 import { makeStyles } from "@mui/styles";
-
-const useStyles = makeStyles({
+import { Theme } from "@mui/material";
+const useStyles = makeStyles((theme: Theme) => ({
   footerCont: {
     backgroundColor: "#000000",
     borderStyle: "solid",
@@ -21,16 +21,14 @@ const useStyles = makeStyles({
     flexDirection: "row",
     marginRight: "auto",
     marginLeft: "auto",
-  },
-  navbarMobile: {
-    position: "relative",
-    backgroundColor: "inherit",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-around",
-    alignItems: "center",
-    marginRight: "auto",
-    marginLeft: "auto",
+    [theme.breakpoints.down("md")]: {
+      width: "100%",
+      flexDirection: "column",
+    },
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+      flexDirection: "column",
+    },
   },
   ContactNumberCont: {
     width: "21.726%",
@@ -38,14 +36,17 @@ const useStyles = makeStyles({
     flexDirection: "row",
     paddingLeft: "5%",
     justifyContent: "end",
+    [theme.breakpoints.down("md")]: {
+      width: "100%",
+      justifyContent: "center",
+      paddingLeft: "0%",
+    },
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+      justifyContent: "center",
+      paddingLeft: "0%",
+    },
   },
-  ContactNumberMobileCont: {
-    display: "inline-flex",
-    flexDirection: "row",
-    paddingLeft: "5%",
-    justifyContent: "end",
-  },
-
   contactNumberLogo: {
     alignItems: "flex-end",
     transform: "scale(1.5)",
@@ -62,12 +63,14 @@ const useStyles = makeStyles({
     alignContent: "center",
     alignItems: "center",
     padding: "10px",
-  },
-  navbarMobileCont: {
-    justifyContent: "space-around",
-    alignContent: "center",
-    alignItems: "center",
-    padding: "10px",
+    [theme.breakpoints.down("md")]: {
+      width: "100%",
+      flexDirection: "row",
+    },
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+      flexDirection: "row",
+    },
   },
 
   socialHandleCont: {
@@ -76,12 +79,18 @@ const useStyles = makeStyles({
     justifyContent: "flex-start",
     alignItems: "center",
     padding: "10px",
-  },
-  socialHandleMobileCont: {
-    display: "flex",
-    justifyContent: "space-around",
-    alignItems: "center",
-    padding: "10px",
+    [theme.breakpoints.down("md")]: {
+      width: "470px",
+      flexDirection: "row",
+      alignItem: "center",
+      justifyContent: "center",
+    },
+    [theme.breakpoints.down("sm")]: {
+      width: "607px",
+      flexDirection: "row",
+      alignItem: "center",
+      justifyContent: "center",
+    },
   },
   socialHandleItemCont: {
     borderRadius: "10%",
@@ -132,6 +141,6 @@ const useStyles = makeStyles({
     marginBottom: "0.9rem",
     fontFamily: "Poppins",
   },
-});
+}));
 
 export default useStyles;

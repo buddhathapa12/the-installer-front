@@ -3,7 +3,7 @@ import ImageCarousel from "../../components/ImageCarousel";
 import { bannerData } from "../../fixtures/HomePage/bannerData";
 import FeedbackCarousel from "../../components/Feedback";
 import { feedbackData } from "../../fixtures/HomePage/feedbacks";
-import { Box, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import EmailIcon from "@mui/icons-material/Email";
 import Link from "next/link";
 import AboutUsText from "../../components/aboutUs/aboutUsText";
@@ -17,7 +17,9 @@ const Home: NextPage = () => {
   return (
     <Box>
       <ImageCarousel height="500px" data={bannerData} />
-      <AboutUsText data={aboutUsDetailData} />
+      <Container className={styles.aboutUsCont}>
+        <AboutUsText data={aboutUsDetailData} />
+      </Container>
       <OurServices />
       <Box width={1} className={styles.feedbackContainer} padding="10px">
         <Box width={1} maxWidth="1140px">

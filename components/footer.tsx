@@ -10,26 +10,12 @@ import CallIcon from "@mui/icons-material/Call";
 const Footer = () => {
   const classes = useStyles();
 
-  const [mobileView, setmobileView] = useState(false);
-  useEffect(() => {
-    const setResponsiveness = () => {
-      return window.innerWidth <= 766 ? setmobileView(true) : setmobileView(false);
-    };
-
-    setResponsiveness();
-    window.addEventListener("resize", () => setResponsiveness());
-
-    return () => {
-      window.removeEventListener("resize", () => setResponsiveness());
-    };
-  }, []);
-
   return (
     <div className={classes.footerCont}>
       <div className={classes.footerUpperCont}>
-        <AppBar className={mobileView ? classes.navbarMobile : classes.navbar}>
+        <AppBar className={classes.navbar}>
           <CssBaseline />
-          <div className={mobileView ? classes.ContactNumberMobileCont : classes.ContactNumberCont}>
+          <div className={classes.ContactNumberCont}>
             <div className={classes.contactNumberLogo}>
               <Link href="tel:705-209-6525" passHref>
                 <CallIcon />
@@ -39,7 +25,7 @@ const Footer = () => {
               <Link href="tel:705-209-6525">705-209-6525</Link>
             </div>
           </div>
-          <div className={mobileView ? classes.navbarMobileCont : classes.navbarCont}>
+          <div className={classes.navbarCont}>
             <ul className={classes.navbarList}>
               <li className={classes.navbarItemCont}>
                 <Link href="/">
@@ -68,7 +54,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div className={mobileView ? classes.socialHandleMobileCont : classes.socialHandleCont}>
+          <div className={classes.socialHandleCont}>
             <div className={classes.socialHandleItemCont}>
               <FacebookOutlinedIcon />
             </div>

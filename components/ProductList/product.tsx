@@ -13,7 +13,7 @@ const Product: NextPage<IProduct> = ({ ...props }) => {
   const classes = useStyles();
   return (
     <Box className={classes.productWrapper}>
-      <Link href={`products/${props.id}`}>
+      <Link href={`products/${props.id}`} passHref>
         <Box
           className={classes.imageWrapper}
           component="a"
@@ -30,7 +30,7 @@ const Product: NextPage<IProduct> = ({ ...props }) => {
         <Typography className={classes.title}>{props.name}</Typography>
         <Typography className={classes.description}>{props.description}</Typography>
       </Box>
-      <Link href={`products/${props.id}`}>
+      <Link href={`products/${props.id}`} passHref>
         <Box className={classes.buttonWrapper} component="a">
           <ShrinkingButton title="Book Now" icon={<CalendarMonthIcon className={classes.calendarIcon} />} />
         </Box>
