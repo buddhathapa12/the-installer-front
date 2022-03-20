@@ -88,7 +88,11 @@ const useStyles = makeStyles({
   hamBurgerMenuItem: {
     textAlign: "center",
     color: "#ffffff",
-    fontFamily: "Sans-serif",
+    fontWeight: 500,
+    fontFamily: '"Poppins", Sans-serif',
+    height: "40px",
+    fontSize: "15px",
+    paddingTop: "10px",
     "&:hover": {
       backgroundColor: "#ffffff",
       "& a": {

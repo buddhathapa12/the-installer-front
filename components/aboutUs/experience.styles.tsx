@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     paddingBottom: "50px",
     flexGrow: 1,
     [theme.breakpoints.down("md")]: {
-      height: "650px",
+      height: "500px",
       width: "470px",
       flexDirection: "column",
     },

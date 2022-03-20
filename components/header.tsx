@@ -152,7 +152,7 @@ const Header = () => {
           </div>
         </Toolbar>
       </AppBar>
-      {activeHamBurger ? hamBurgerList() : null}
+      {mobileView && activeHamBurger ? hamBurgerList() : null}
     </div>
   );
 };
