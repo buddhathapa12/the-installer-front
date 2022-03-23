@@ -3,18 +3,18 @@ import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles((theme: Theme) => ({
   container: {
-    maxWidth: "100%",
+    maxWidth: "1300px",
   },
   projectListCont: {
     display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",
-    justifyContent: "center",
+    justifyContent: "flex-start",
   },
   projectItemCont: {
     flexBasis: 340,
     height: "776px",
-    width: "335px",
+    width: "366.67px",
     display: "flex",
     flexDirection: "column",
     justifyContent: "flex-start",
@@ -22,15 +22,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     border: "solid",
     borderColor: "#ffffff",
     borderWidth: "1px",
-    // flexGrow: 1,
-    // [theme.breakpoints.down("md")]: {
-    //   height: "650px",
-    //   width: "470px",
-    // },
-    // [theme.breakpoints.down("sm")]: {
-    //   height: "450px",
-    //   width: "607px",
-    // },
   },
 
   imageWrapper: {
