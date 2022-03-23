@@ -10,11 +10,14 @@ const useStyles = makeStyles((theme: Theme) => ({
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "center",
+    // gridTemplateColumns: 3,
+    // marginLeft: "150px",
+    // marginRight: "150px",
   },
   projectItemCont: {
     flexBasis: 340,
     height: "776px",
-    width: "366.67px",
+    width: "335px",
     display: "flex",
     flexDirection: "column",
     justifyContent: "flex-start",
@@ -40,6 +43,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     transitionDuration: "0.5s",
     position: "relative",
     marginBottom: 20,
+    marginLeft: "1px",
     "&:hover": {
       transform: "scale(1.1)",
     },
@@ -54,6 +58,24 @@ const useStyles = makeStyles((theme: Theme) => ({
   imageCont: {
     objectFit: "cover",
     aspectRatio: "1920/2560",
+  },
+
+  titleCOnt: {
+    fontSize: "32px",
+    fontWeight: 500,
+    color: "#ffffff",
+    fontFamily: "Poppins",
+    textAlign: "center",
+    padding: "10px",
+  },
+
+  descriptionCont: {
+    padding: "0px 10px 10px 10px",
+    textAlign: "center",
+    color: "#ffffff",
+    fontSize: "16px",
+    fontWeight: "400",
+    fontFamily: "poppins",
   },
 }));
 

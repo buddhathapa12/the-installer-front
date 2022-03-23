@@ -12,8 +12,8 @@ const ProjectItem: NextPage<IProject> = ({ ...props }) => {
       <Box className={classes.imageWrapper} component="a">
         <Image src={props.imageUrl} alt={props.name} width="335px" height="400px" className={classes.imageCont} />
       </Box>
-      <Typography>{props.name} </Typography>
-      <Typography>{props.description} </Typography>
+      <Typography className={classes.titleCOnt}>{props.name} </Typography>
+      <Typography className={classes.descriptionCont}>{props.description} </Typography>
     </Box>
   );
 };
