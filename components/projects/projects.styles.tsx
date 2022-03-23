@@ -10,9 +10,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "center",
-    // gridTemplateColumns: 3,
-    // marginLeft: "150px",
-    // marginRight: "150px",
   },
   projectItemCont: {
     flexBasis: 340,
