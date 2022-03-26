@@ -4,9 +4,7 @@ const useStyles = makeStyles(() => ({
   backgroundImage: {
     width: "100%",
     height: "100%",
-    backgroundPosition: "top center",
     backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
     position: "relative",
   },
 
