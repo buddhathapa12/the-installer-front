@@ -11,6 +11,8 @@ interface IContactFormValues {
   message: string;
 }
 
+type IContactFormErrorLabel = "name" | "email";
+
 interface IContactInfoFormData {
   values: IContactFormValues;
   error: {
@@ -90,7 +92,7 @@ const ContactUsForm: NextPage<IContactUsForm> = (props) => {
                   }}
                   onChange={handleChange}
                 />
-                {formData.error[item.label.toLowerCase()] ? (
+                {formData.error[item.label.toLowerCase() as IContactFormErrorLabel] ? (
                   <Typography color="#d9534f" fontSize="12px" marginTop="2px" marginBottom="5px">
                     Required
                   </Typography>
