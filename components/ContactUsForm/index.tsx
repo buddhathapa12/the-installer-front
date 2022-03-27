@@ -77,7 +77,7 @@ const ContactUsForm: NextPage<IContactUsForm> = (props) => {
                   inputProps={{
                     className: classes.contactInfoInput,
                   }}
-                  autoFocus={true}
+                  autoFocus={!index}
                   fullWidth
                   tabIndex={index}
                   placeholder={item.placeholder}
