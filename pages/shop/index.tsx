@@ -32,27 +32,39 @@ type SORTING_OPTION_TYPES =
 
 const Shop = () => {
   const styles = useStyles();
+  const PageSize = 16;
+  const totalPages = 2;
+
   const [sortBy, setSortBy] = useState<SORTING_OPTIONS>(SORTING_OPTIONS.DEFAULT);
   const [productData, setProductData] = useState<IProduct[]>(ProductsData.slice(0, 16));
+  const [page, setPage] = useState<number>(1);
 
   useEffect(() => {
+    const start = Math.floor(page / totalPages) ? PageSize : 0;
+    const end = page * PageSize > ProductsData.length ? ProductsData.length : page * PageSize;
     if (sortBy === SORTING_OPTIONS.DEFAULT) {
       const sortedData = ProductsData.sort((a, b) => (a.id < b.id ? -1 : 1));
-      setProductData(sortedData.slice(0, 16));
+      setProductData(sortedData.slice(start, end));
     } else if (sortBy === SORTING_OPTIONS.NAME_A_TO_Z) {
       const sortedData = ProductsData.sort((a, b) => (a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1));
-      setProductData(sortedData.slice(0, 16));
+      setProductData(sortedData.slice(start, end));
     } else if (sortBy === SORTING_OPTIONS.NAME_Z_TO_A) {
       const sortedData = ProductsData.sort((a, b) => (a.name.toLowerCase() > b.name.toLowerCase() ? -1 : 1));
-      setProductData(sortedData.slice(0, 16));
+      setProductData(sortedData.slice(start, end));
     } else if (sortBy === SORTING_OPTIONS.PRICE_LOW_TO_HIGH) {
       const sortedData = ProductsData.sort((a, b) => ((a.price || 0) < (b.price || 0) ? -1 : 1));
-      setProductData(sortedData.slice(0, 16));
+      setProductData(sortedData.slice(start, end));
     } else if (sortBy === SORTING_OPTIONS.PRICE_HIGH_TO_LOW) {
       const sortedData = ProductsData.sort((a, b) => ((a.price || 0) > (b.price || 0) ? -1 : 1));
-      setProductData(sortedData.slice(0, 16));
+      setProductData(sortedData.slice(start, end));
     }
   }, [sortBy]);
+
+  useEffect(() => {
+    const start = Math.floor(page / totalPages) ? PageSize : 0;
+    const end = page * PageSize > ProductsData.length ? ProductsData.length : page * PageSize;
+    setProductData(ProductsData.slice(start, end));
+  }, [page]);
 
   return (
     <Box width={1} height={1} className={styles.container}>
@@ -88,10 +100,14 @@ const Shop = () => {
         <Box className={styles.paginationWrapper}>
           <Pagination
             count={2}
+            page={page}
             variant="outlined"
             shape="rounded"
             defaultPage={1}
-            hidePrevButton={true}
+            hidePrevButton={page < 2}
+            onChange={(_, page) => {
+              setPage(page);
+            }}
             renderItem={(item) => (
               <PaginationItem
                 components={{

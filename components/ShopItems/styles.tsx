@@ -6,7 +6,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",
-    justifyContent: "flex-start",
+    // justifyContent: "flex-start",
   },
   itemWrapper: {
     flexBasis: 220,
