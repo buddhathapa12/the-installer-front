@@ -8,10 +8,14 @@ interface IBannerData {
   backgroundImageUrl: string;
 }
 
+type BackgroundSize = "auto" | "contain" | "cover" | "inherit" | "initial" | "revert" | "unset";
+
 interface IImageBanner {
   height?: string;
   titleFontSize?: string;
   descriptionFontSize?: string;
+  applyDarkOverlay?: boolean;
+  backgroundSize?: BackgroundSize;
   data: IBannerData;
 }
 
@@ -24,9 +28,10 @@ const ImageBanner: NextPage<IImageBanner> = (props) => {
       style={{
         backgroundImage: `url(${props.data.backgroundImageUrl})`,
         height: props.height ?? "500px",
+        backgroundSize: props.backgroundSize ?? "cover",
       }}
     >
-      <Box className={styles.overlay} />
+      {(props.applyDarkOverlay ?? true) && <Box className={styles.overlay} />}
       <Box className={styles.content}>
         <Typography
           className={styles.title}
