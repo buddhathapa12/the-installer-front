@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   cssOutlinedInput: {
     "&$cssFocused $notchedOutline": {
-      borderColor: `white !important`,
+      borderColor: "white !important",
     },
   },
   contactInfoInputHeight: {

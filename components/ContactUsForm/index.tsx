@@ -11,11 +11,13 @@ interface IContactFormValues {
   message: string;
 }
 
+type IContactFormErrorLabel = "name" | "email";
+
 interface IContactInfoFormData {
   values: IContactFormValues;
   error: {
-    name: boolean;
-    email: boolean;
+    name: string | null;
+    email: string | null;
   };
 }
 
@@ -24,6 +26,10 @@ interface IContactUsForm {
   error: string | null;
   marginTop?: string;
 }
+
+const checkEmailValidity = (email: string): boolean => {
+  return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
+};
 
 const ContactUsForm: NextPage<IContactUsForm> = (props) => {
   const classes = useStyles();
@@ -35,8 +41,8 @@ const ContactUsForm: NextPage<IContactUsForm> = (props) => {
       message: "",
     },
     error: {
-      name: false,
-      email: false,
+      name: null,
+      email: null,
     },
   });
 
@@ -90,9 +96,9 @@ const ContactUsForm: NextPage<IContactUsForm> = (props) => {
                   }}
                   onChange={handleChange}
                 />
-                {formData.error[item.label.toLowerCase()] ? (
+                {formData.error[item.label.toLowerCase() as IContactFormErrorLabel] ? (
                   <Typography color="#d9534f" fontSize="12px" marginTop="2px" marginBottom="5px">
-                    Required
+                    {formData.error[item.label.toLowerCase() as IContactFormErrorLabel]}
                   </Typography>
                 ) : null}
               </Box>
@@ -134,9 +140,14 @@ const ContactUsForm: NextPage<IContactUsForm> = (props) => {
               padding: "6px 24px",
             }}
             onClick={() => {
-              if (formData.values.name === "" || formData.values.email === "") {
-                const errorInName = formData.values.name === "" ? true : false;
-                const errorInEmail = formData.values.email === "" ? true : false;
+              const errorInName = formData.values.name === "" ? "Required" : null;
+              const errorInEmail =
+                formData.values.email === ""
+                  ? "Required"
+                  : !checkEmailValidity(formData.values.email)
+                  ? "Invalid Email"
+                  : null;
+              if (errorInEmail || errorInName) {
                 setFormData({
                   ...formData,
                   error: {
@@ -144,7 +155,6 @@ const ContactUsForm: NextPage<IContactUsForm> = (props) => {
                     email: errorInEmail,
                   },
                 });
-                console.log(formData.error);
               } else {
                 props.onSubmit(formData.values);
               }
