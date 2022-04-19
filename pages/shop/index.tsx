@@ -14,6 +14,8 @@ import React, { useEffect, useState } from "react";
 import ShopItemList from "../../components/ShopItems";
 import { IProduct, ProductsData } from "../../fixtures/BookOnline/productList";
 import useStyles from "../../utils/shop";
+import { useRouter } from "next/router";
+import { UserAccessToken, FetchUser } from "../../utils/fetchUserDetails";
 
 enum SORTING_OPTIONS {
   DEFAULT = "default",
@@ -31,6 +33,9 @@ type SORTING_OPTION_TYPES =
   | SORTING_OPTIONS.PRICE_LOW_TO_HIGH;
 
 const Shop = () => {
+  const router = useRouter();
+  const [user, setUser] = useState({});
+
   const styles = useStyles();
   const PageSize = 16;
   const totalPages = 2;
@@ -64,6 +69,13 @@ const Shop = () => {
     const start = Math.floor(page / totalPages) ? PageSize : 0;
     const end = page * PageSize > ProductsData.length ? ProductsData.length : page * PageSize;
     setProductData(ProductsData.slice(start, end));
+
+    const accessToken = UserAccessToken();
+    if (!accessToken) {
+      router.push("/login");
+    }
+
+    const userInfo = FetchUser();
   }, [page]);
 
   return (
