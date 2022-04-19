@@ -8,7 +8,7 @@ const useStyles = makeStyles(() => ({
     // height: "100%",
     display: "flex",
     flexDirection: "column",
-    marginTop: "100px",
+    marginTop: "200px",
   },
   titleCont: {
     textAlign: "center",
