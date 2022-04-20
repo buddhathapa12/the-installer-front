@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import GoogleIcon from "@mui/icons-material/Google";
 import { Box, Typography } from "@mui/material";
 import useStyles from "../../utils/login/login.styles";
+import Image from "next/image";
 const Login = () => {
   const firebaseAuth = getAuth(firebaseApp);
   const provider = new GoogleAuthProvider();
@@ -17,7 +18,7 @@ const Login = () => {
     localStorage.setItem("user", JSON.stringify(providerData));
     localStorage.setItem("accessToken", JSON.stringify(refreshToken));
 
-    router.push("/");
+    router.push("/shop");
     console.log(providerData);
   };
 
@@ -34,10 +35,11 @@ const Login = () => {
         }}
         onClick={SignIn}
       >
-        <Typography className={classes.signInText}>Sign in with Google</Typography>
+        <Image src="/static/images/login/signInButton.png" alt="Sign in with Google" width={250} height={55} />
+        {/* <Typography className={classes.signInText}>Sign in with Google</Typography>
         <span className={classes.googleIcon}>
           <GoogleIcon />
-        </span>
+        </span> */}
       </Box>
     </Box>
   );
