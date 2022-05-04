@@ -6,11 +6,16 @@ import useStyles from "../utils/header.styles";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 const Header = () => {
   const [mobileView, setmobileView] = useState(false);
   const [active, setActive] = useState(false);
   const [activeHamBurger, setActiveHamBurger] = useState(false);
+
+  //Google Authentication
+  const { data: session } = useSession();
+  console.log(session);
 
   useEffect(() => {
     const setResponsiveness = () => {
@@ -145,9 +150,18 @@ const Header = () => {
           <div className={classes.navbarCont}>{mobileView ? displayMobile() : displayDesktop()}</div>
           <div className={classes.cartCont}>
             <div className={classes.cart}>
-              <span className={classes.cartIcon}>
+              {/* <span className={classes.cartIcon}>
                 <ShoppingBagOutlinedIcon />
-              </span>
+              </span> */}
+              {session ? (
+                <>
+                  <button onClick={() => signOut()}>Sign out</button>
+                </>
+              ) : (
+                <>
+                  <button onClick={() => signIn("google")}>Sign in</button>
+                </>
+              )}
             </div>
           </div>
         </Toolbar>
