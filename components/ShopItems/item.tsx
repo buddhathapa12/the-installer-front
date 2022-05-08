@@ -9,23 +9,9 @@ import { useSession } from "next-auth/react";
 import React, { useState, useEffect } from "react";
 
 const ShopItem: NextPage<IProduct> = ({ ...props }) => {
-  //Authentication verification
-  const { data: session } = useSession();
-
-  const [urlPath, setUrlPath] = useState("");
-  useEffect(() => {
-    if (session) {
-      // const url = `/shop/${props.id}`;
-      setUrlPath(`/shop/${props.id}`);
-    } else {
-      // const url = "`/signIn";
-      setUrlPath("/signIn");
-    }
-  }, []);
-
   const classes = useStyles();
   return (
-    <Link href={urlPath} passHref>
+    <Link href={`/shop/${props.id}`} passHref>
       <Box className={classes.itemWrapper} component="a">
         <Box
           className={classes.productWrapper}

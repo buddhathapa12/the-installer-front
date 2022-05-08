@@ -12,6 +12,7 @@ const Login = () => {
 
   const classes = useStyles();
 
+  //   if (!session) {
   return (
     <Box className={classes.loginCont}>
       <Typography className={classes.titleCont}>Please login with google before shopping</Typography>{" "}
@@ -31,6 +32,10 @@ const Login = () => {
       </Box>
     </Box>
   );
+  //   }
+  //   else {
+  //     return;
+  //   }
 };
 
 export default Login;

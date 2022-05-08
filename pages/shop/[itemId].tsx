@@ -5,18 +5,16 @@ import React, { useEffect } from "react";
 import { IProduct, ProductsData } from "../../fixtures/BookOnline/productList";
 import { signIn, useSession } from "next-auth/react";
 import Link from "next/link";
-import GoogleSignIn from "../../components/signIn/GoogleSignIn";
+import Login from "../signIn";
 
 const ProductItem = () => {
   const router = useRouter();
-  debugger;
   const itemId = router.query.itemId;
   const productDetail: IProduct | undefined = ProductsData.find((obj) => {
     return obj.id.toString() === itemId;
   });
 
   // Google Authentication
-  debugger;
   const { data: session } = useSession();
 
   // useEffect(() => {
@@ -38,7 +36,7 @@ const ProductItem = () => {
       <Typography>404 Page not found</Typography>
     );
   } else {
-    return <GoogleSignIn />;
+    return <Login />;
   }
 };
 
