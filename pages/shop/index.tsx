@@ -58,7 +58,7 @@ const Shop = () => {
       const sortedData = ProductsData.sort((a, b) => ((a.price || 0) > (b.price || 0) ? -1 : 1));
       setProductData(sortedData.slice(start, end));
     }
-  }, [sortBy]);
+  }, [page, sortBy]);
 
   useEffect(() => {
     const start = Math.floor(page / totalPages) ? PageSize : 0;

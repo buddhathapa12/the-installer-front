@@ -23,7 +23,6 @@ const Contact = () => {
   const classes = useStyles();
   const [error, setError] = useState<string | null>(null);
   const onSubmit = (data: IContactInfoFormData) => {
-    console.log(data);
     setError("error");
   };
   return (
@@ -43,7 +42,12 @@ const Contact = () => {
         </Box>
         <Box className={classes.contactInfoWrapper}>
           <Box className={classes.imageWrapper}>
-            <Image src="/static/images/contact-us/contact-us-banner.jpg" layout="fill" objectFit="cover" />
+            <Image
+              src="/static/images/contact-us/contact-us-banner.jpg"
+              alt="Contact Us Banner"
+              layout="fill"
+              objectFit="cover"
+            />
           </Box>
           <Box className={classes.contactInfo}>
             <Typography variant="h2" className={classes.contactInfoHeader}>
@@ -53,7 +57,7 @@ const Contact = () => {
               Port McNicoll On
             </Typography>
             <Typography variant="h3" className={classes.contactPhoneEmail}>
-              <Link href="mailto:rb@theinstaller.me">
+              <Link href="mailto:rb@theinstaller.me" passHref>
                 <ContactMailIcon fontSize="small" className={classes.iconMargin} />
               </Link>
               <Link href="mailto:rb@theinstaller.me" passHref>
@@ -61,7 +65,7 @@ const Contact = () => {
               </Link>
             </Typography>
             <Typography variant="h3" className={classes.contactPhoneEmail}>
-              <Link href="tel:705-209-6525">
+              <Link href="tel:705-209-6525" passHref>
                 <CallIcon fontSize="small" className={classes.iconMargin} />
               </Link>
               <Link href="tel:705-209-6525">705-209-6525</Link>

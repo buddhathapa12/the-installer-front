@@ -15,7 +15,6 @@ const Header = () => {
 
   //Google Authentication
   const { data: session } = useSession();
-  console.log(session);
 
   useEffect(() => {
     const setResponsiveness = () => {

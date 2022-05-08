@@ -1,4 +1,3 @@
-import React from "react";
 import type { NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -6,11 +5,27 @@ import { Box } from "@mui/system";
 import { IProduct } from "../../fixtures/BookOnline/productList";
 import { Typography } from "@mui/material";
 import useStyles from "./styles";
+import { useSession } from "next-auth/react";
+import React, { useState, useEffect } from "react";
 
 const ShopItem: NextPage<IProduct> = ({ ...props }) => {
+  //Authentication verification
+  const { data: session } = useSession();
+
+  const [urlPath, setUrlPath] = useState("");
+  useEffect(() => {
+    if (session) {
+      // const url = `/shop/${props.id}`;
+      setUrlPath(`/shop/${props.id}`);
+    } else {
+      // const url = "`/signIn";
+      setUrlPath("/signIn");
+    }
+  }, []);
+
   const classes = useStyles();
   return (
-    <Link href={`/products/${props.id}`} passHref>
+    <Link href={urlPath} passHref>
       <Box className={classes.itemWrapper} component="a">
         <Box
           className={classes.productWrapper}
