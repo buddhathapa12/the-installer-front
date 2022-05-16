@@ -149,10 +149,13 @@ const Header = () => {
           <div className={classes.navbarCont}>{mobileView ? displayMobile() : displayDesktop()}</div>
           <div className={classes.cartCont}>
             <div className={classes.cart}>
-              {/* <span className={classes.cartIcon}>
-                <ShoppingBagOutlinedIcon />
-              </span> */}
-              {session ? (
+              <Link href="/cart" passHref>
+                <span className={classes.cartIcon}>
+                  <ShoppingBagOutlinedIcon />
+                </span>
+              </Link>
+
+              {/* {session ? (
                 <>
                   <button onClick={() => signOut()}>Sign out</button>
                 </>
@@ -160,7 +163,7 @@ const Header = () => {
                 <>
                   <button onClick={() => signIn("google")}>Sign in</button>
                 </>
-              )}
+              )} */}
             </div>
           </div>
         </Toolbar>
