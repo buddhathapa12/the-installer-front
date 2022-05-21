@@ -1,5 +1,5 @@
-import { AppBar, CssBaseline, Toolbar, Typography } from "@mui/material";
-import React, { useState, useEffect } from "react";
+import { AppBar, CssBaseline, Toolbar, Typography, Badge } from "@mui/material";
+import React, { useState, useEffect, useContext } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import useStyles from "../utils/header.styles";
@@ -7,12 +7,16 @@ import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import { useSession, signIn, signOut } from "next-auth/react";
+import { Store } from "../utils/store";
 
 const Header = () => {
   const [mobileView, setmobileView] = useState(false);
   const [active, setActive] = useState(false);
   const [activeHamBurger, setActiveHamBurger] = useState(false);
 
+  //Context API
+  const { state, dispatch } = useContext(Store);
+  const { cart } = state;
   //Google Authentication
   const { data: session } = useSession();
 
@@ -129,6 +133,15 @@ const Header = () => {
       </ul>
     );
   };
+
+  const shoppinCartBanner =
+    cart.cartItems.length > 0 ? (
+      <Badge badgeContent={cart.cartItems.length} color="warning">
+        <ShoppingBagOutlinedIcon />
+      </Badge>
+    ) : (
+      <ShoppingBagOutlinedIcon />
+    );
   return (
     <div>
       <AppBar className={classes.navbar}>
@@ -150,20 +163,8 @@ const Header = () => {
           <div className={classes.cartCont}>
             <div className={classes.cart}>
               <Link href="/cart" passHref>
-                <span className={classes.cartIcon}>
-                  <ShoppingBagOutlinedIcon />
-                </span>
+                <span className={classes.cartIcon}>{shoppinCartBanner}</span>
               </Link>
-
-              {/* {session ? (
-                <>
-                  <button onClick={() => signOut()}>Sign out</button>
-                </>
-              ) : (
-                <>
-                  <button onClick={() => signIn("google")}>Sign in</button>
-                </>
-              )} */}
             </div>
           </div>
         </Toolbar>
