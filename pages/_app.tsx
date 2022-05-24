@@ -4,6 +4,7 @@ import Layout from "../components/layout";
 import { useEffect } from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { SessionProvider } from "next-auth/react";
+import { StoreProvider } from "../utils/store";
 
 const theme = createTheme({
   typography: {
@@ -20,13 +21,15 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
     }
   }, []);
   return (
-    <SessionProvider session={session}>
-      <ThemeProvider theme={theme}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </ThemeProvider>
-    </SessionProvider>
+    <StoreProvider>
+      <SessionProvider session={session}>
+        <ThemeProvider theme={theme}>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </ThemeProvider>
+      </SessionProvider>
+    </StoreProvider>
   );
 }
 
