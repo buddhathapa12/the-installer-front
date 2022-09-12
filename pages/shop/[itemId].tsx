@@ -4,9 +4,8 @@ import { useRouter } from "next/router";
 import React, { useContext, useEffect } from "react";
 import { IProduct, ProductsData } from "../../fixtures/BookOnline/productList";
 import { signIn, useSession } from "next-auth/react";
-import Link from "next/link";
 import Login from "../signIn";
-import { Store } from "../../utils/store";
+import { UserContext } from "../../context/userContext";
 
 const ProductItem = () => {
   const router = useRouter();
@@ -17,24 +16,13 @@ const ProductItem = () => {
 
   // Google Authentication
   const { data: session } = useSession();
-
+  const { addCartItem } = useContext(UserContext);
   // useEffect(() => {
   //   debugger;
   //   if (session == null) {
   //     signIn("google");
   //   }
   // }, [session]);
-
-  const { dispatch } = useContext(Store);
-  const addToCartHandler = async () => {
-    // debugger;
-    // const { data } = await axios.get(`/api/products/${product._id}`);
-    // if (data.countInStock <= 0) {
-    //   window.alert("Sorry. Product is out of stock");
-    //   return;
-    // }
-    dispatch({ type: "CART_ADD_ITEM", payload: { data: productDetail, quantity: 1 } });
-  };
 
   if (session) {
     return productDetail != undefined ? (
@@ -43,7 +31,14 @@ const ProductItem = () => {
         <Typography>{productDetail.name}</Typography>
         <Typography>{productDetail.description}</Typography>
         <Typography>{productDetail.price} </Typography>
-        <Button fullWidth variant="contained" color="primary" onClick={addToCartHandler}>
+        <Button
+          fullWidth
+          variant="contained"
+          color="primary"
+          onClick={() => {
+            addCartItem(productDetail);
+          }}
+        >
           Add to cart
         </Button>
       </Box>

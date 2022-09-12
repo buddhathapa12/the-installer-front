@@ -7,16 +7,12 @@ import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import { useSession, signIn, signOut } from "next-auth/react";
-import { Store } from "../utils/store";
 import Cart from "../components/ShoppingCart/cart";
 const Header = () => {
   const [mobileView, setmobileView] = useState(false);
   const [active, setActive] = useState(false);
   const [activeHamBurger, setActiveHamBurger] = useState(false);
 
-  //Context API
-  const { state, dispatch } = useContext(Store);
-  const { cart } = state;
   //Google Authentication
   const { data: session } = useSession();
 
@@ -134,14 +130,6 @@ const Header = () => {
     );
   };
 
-  const shoppinCartBanner =
-    cart.cartItems.length > 0 ? (
-      <Badge badgeContent={cart.cartItems.length} color="warning">
-        <ShoppingBagOutlinedIcon />
-      </Badge>
-    ) : (
-      <ShoppingBagOutlinedIcon />
-    );
   return (
     <div>
       <AppBar className={classes.navbar}>
@@ -162,11 +150,9 @@ const Header = () => {
           <div className={classes.navbarCont}>{mobileView ? displayMobile() : displayDesktop()}</div>
           <div className={classes.cartCont}>
             <div className={classes.cart}>
-              {/* <Link href="/cart" passHref> */}
               <span className={classes.cartIcon}>
-                <Cart cart={cart} />
+                <Cart />
               </span>
-              {/* </Link> */}
             </div>
           </div>
         </Toolbar>

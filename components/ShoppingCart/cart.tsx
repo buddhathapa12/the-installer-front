@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Badge } from "@mui/material";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
-import { IStoreContextData } from "../../utils/store";
-import { NextPage } from "next";
-const Cart: NextPage<IStoreContextData> = ({ cart }) => {
+import { UserContext } from "../../context/userContext";
+
+const Cart = () => {
   debugger;
+  const { cartItems } = useContext(UserContext);
   return (
-    <Badge badgeContent={cart.cartItems.length} color="warning">
+    <Badge badgeContent={cartItems.length} color="warning">
       <ShoppingBagOutlinedIcon />
     </Badge>
   );

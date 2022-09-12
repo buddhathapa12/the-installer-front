@@ -4,8 +4,8 @@ import Layout from "../components/layout";
 import { useEffect } from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { SessionProvider } from "next-auth/react";
-import { StoreProvider } from "../utils/store";
-
+import { UserContext } from "../context/userContext";
+import useCartHook from "../hooks/cartHook";
 const theme = createTheme({
   typography: {
     fontFamily: '"Poppins", Sans-serif',
@@ -13,6 +13,7 @@ const theme = createTheme({
 });
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
+  const { cartItems, addCartItem } = useCartHook();
   //this is done for instance reflection of changes in code into browser
   useEffect(() => {
     const jssStyles = document.querySelector("#jss-server-side");
@@ -21,7 +22,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
     }
   }, []);
   return (
-    <StoreProvider>
+    <UserContext.Provider value={{ cartItems, addCartItem }}>
       <SessionProvider session={session}>
         <ThemeProvider theme={theme}>
           <Layout>
@@ -29,7 +30,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
           </Layout>
         </ThemeProvider>
       </SessionProvider>
-    </StoreProvider>
+    </UserContext.Provider>
   );
 }
 
