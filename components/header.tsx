@@ -8,7 +8,7 @@ import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { Store } from "../utils/store";
-
+import Cart from "../components/ShoppingCart/cart";
 const Header = () => {
   const [mobileView, setmobileView] = useState(false);
   const [active, setActive] = useState(false);
@@ -162,9 +162,11 @@ const Header = () => {
           <div className={classes.navbarCont}>{mobileView ? displayMobile() : displayDesktop()}</div>
           <div className={classes.cartCont}>
             <div className={classes.cart}>
-              <Link href="/cart" passHref>
-                <span className={classes.cartIcon}>{shoppinCartBanner}</span>
-              </Link>
+              {/* <Link href="/cart" passHref> */}
+              <span className={classes.cartIcon}>
+                <Cart cart={cart} />
+              </span>
+              {/* </Link> */}
             </div>
           </div>
         </Toolbar>
