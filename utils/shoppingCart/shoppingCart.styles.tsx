@@ -1,6 +1,16 @@
 import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles(() => ({
+  cartIcon: {
+    color: "#ffffff",
+    fontSize: "40px",
+    cursor: "pointer",
+    paddingBottom: 5,
+    "&:hover": {
+      color: "red",
+    },
+    "&::before": {},
+  },
   cartItem: {
     display: "flex",
     flexDirection: "row",

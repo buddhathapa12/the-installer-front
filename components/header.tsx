@@ -150,9 +150,7 @@ const Header = () => {
           <div className={classes.navbarCont}>{mobileView ? displayMobile() : displayDesktop()}</div>
           <div className={classes.cartCont}>
             <div className={classes.cart}>
-              <span className={classes.cartIcon}>
-                <Cart />
-              </span>
+              <Cart />
             </div>
           </div>
         </Toolbar>
