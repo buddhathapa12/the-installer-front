@@ -1,5 +1,3 @@
-import Cookies from "js-cookie";
-import { createContext, useReducer } from "react";
 import { IProduct } from "../fixtures/BookOnline/productList";
 export interface IStore {
   data: IProduct;
@@ -16,4 +14,3 @@ export interface IStoreContextData {
     cartItems: IStore[];
   };
 }
-// Store.Provider value={value};

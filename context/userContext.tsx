@@ -6,6 +6,13 @@ import useCartHook from "../hooks/cartHook";
 export interface HooksInterface {
   cartItems: IStore[];
   addCartItem: (item: IProduct) => void;
+  quantityIncrement: (id: number) => void;
+  quantityDecrement: (id: number) => void;
 }
 
-export const UserContext = createContext<HooksInterface>({ cartItems: [], addCartItem: useCartHook });
+export const UserContext = createContext<HooksInterface>({
+  cartItems: [],
+  addCartItem: () => {},
+  quantityIncrement: () => {},
+  quantityDecrement: () => {},
+});
