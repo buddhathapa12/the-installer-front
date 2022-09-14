@@ -8,6 +8,7 @@ export interface HooksInterface {
   addCartItem: (item: IProduct) => void;
   quantityIncrement: (id: number) => void;
   quantityDecrement: (id: number) => void;
+  removeCartItem: (id: number) => void;
 }
 
 export const UserContext = createContext<HooksInterface>({
@@ -15,4 +16,5 @@ export const UserContext = createContext<HooksInterface>({
   addCartItem: () => {},
   quantityIncrement: () => {},
   quantityDecrement: () => {},
+  removeCartItem: () => {},
 });
