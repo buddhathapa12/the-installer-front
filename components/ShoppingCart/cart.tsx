@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Badge, Box, Drawer, Tooltip, Typography } from "@mui/material";
+import { Badge, Box, Button, Drawer, Tooltip, Typography } from "@mui/material";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import { UserContext } from "../../context/userContext";
 import CartItem from "./cartItem";
@@ -7,7 +7,7 @@ import useStyles from "../../utils/shoppingCart/shoppingCart.styles";
 import CloseIcon from "@mui/icons-material/Close";
 const Cart = () => {
   const classes = useStyles();
-  const { cartItems } = useContext(UserContext);
+  const { cartItems, getTotalAmount } = useContext(UserContext);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const cartContent = cartItems.map((cartItem, index) => <CartItem key={index} {...cartItem} />);
   return (
@@ -61,6 +61,23 @@ const Cart = () => {
         </Box>
 
         {cartContent}
+        <Box className={classes.totalAndCheckoutContainer}>
+          <Box style={{ alignSelf: "center", fontWeight: 500, fontSize: 20 }}>
+            Subtotal: {getTotalAmount(cartItems)}
+          </Box>
+          <Button
+            sx={{
+              alignSelf: "center",
+              background: "#cd6b62",
+              color: "#ffffff",
+              "&:hover": {
+                color: "red",
+              },
+            }}
+          >
+            Checkout
+          </Button>
+        </Box>
       </Drawer>
     </Badge>
   );

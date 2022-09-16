@@ -60,7 +60,16 @@ const useCartHook = () => {
     setCartItems([...tempCartItems]);
   };
 
-  return { cartItems, addCartItem, removeCartItem, quantityIncrement, quantityDecrement };
+  const getTotalAmount = (itemList: IStore[]) => {
+    let totalAmount = 0;
+    if (itemList.length > 0) {
+      itemList.forEach((item) => {
+        totalAmount += item.data.price * item.quantity;
+      });
+    }
+    return totalAmount;
+  };
+  return { cartItems, addCartItem, removeCartItem, quantityIncrement, quantityDecrement, getTotalAmount };
 };
 
 export default useCartHook;

@@ -9,6 +9,7 @@ export interface HooksInterface {
   quantityIncrement: (id: number) => void;
   quantityDecrement: (id: number) => void;
   removeCartItem: (id: number) => void;
+  getTotalAmount: (itemList: IStore[]) => number;
 }
 
 export const UserContext = createContext<HooksInterface>({
@@ -17,4 +18,7 @@ export const UserContext = createContext<HooksInterface>({
   quantityIncrement: () => {},
   quantityDecrement: () => {},
   removeCartItem: () => {},
+  getTotalAmount: ([]) => {
+    return 0;
+  },
 });

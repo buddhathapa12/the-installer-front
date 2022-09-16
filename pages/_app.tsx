@@ -13,7 +13,8 @@ const theme = createTheme({
 });
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
-  const { cartItems, addCartItem, removeCartItem, quantityDecrement, quantityIncrement } = useCartHook();
+  const { cartItems, addCartItem, removeCartItem, quantityDecrement, quantityIncrement, getTotalAmount } =
+    useCartHook();
   //this is done for instance reflection of changes in code into browser
   useEffect(() => {
     const jssStyles = document.querySelector("#jss-server-side");
@@ -22,7 +23,9 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
     }
   }, []);
   return (
-    <UserContext.Provider value={{ cartItems, addCartItem, removeCartItem, quantityDecrement, quantityIncrement }}>
+    <UserContext.Provider
+      value={{ cartItems, addCartItem, removeCartItem, quantityDecrement, quantityIncrement, getTotalAmount }}
+    >
       <SessionProvider session={session}>
         <ThemeProvider theme={theme}>
           <Layout>
