@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Avatar, Badge, Box, Button, Divider, Drawer, drawerClasses, Typography } from "@mui/material";
+import { Badge, Box, Drawer, Tooltip, Typography } from "@mui/material";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import { UserContext } from "../../context/userContext";
 import CartItem from "./cartItem";
@@ -25,19 +25,34 @@ const Cart = () => {
         PaperProps={{
           sx: {
             width: 375,
-            background: "#ffffff",
+            background: "#858585",
             borderTopLeftRadius: "15px",
             borderBottomLeftRadius: "15px",
           },
         }}
       >
-        <Box style={{ display: "flex", margin: 5 }}>
-          <CloseIcon
-            style={{ alignSelf: "center", fontSize: 30, color: "#cd6b62", cursor: "pointer" }}
-            onClick={() => {
-              setIsDrawerOpen(false);
-            }}
-          />
+        <Box
+          style={{
+            display: "flex",
+            margin: 5,
+            background: "#ffffff",
+            borderRadius: 15,
+          }}
+        >
+          <Tooltip title="Close">
+            <CloseIcon
+              style={{
+                alignSelf: "center",
+                fontSize: 30,
+                color: "#cd6b62",
+                cursor: "pointer",
+                margin: 5,
+              }}
+              onClick={() => {
+                setIsDrawerOpen(false);
+              }}
+            />
+          </Tooltip>
           <Typography
             sx={{ flex: 5, fontSize: "30px", fontWeight: 400, textAlign: "center", margin: "5px", color: "#cd6b62" }}
           >

@@ -26,7 +26,23 @@ const useStyles = makeStyles(() => ({
   itemContent: { display: "flex", flexDirection: "column", flex: 3, justifyContent: "space-between" },
   itemInformation: { flex: 3, display: "flex", flexDirection: "row", justifyContent: "space-between" },
   itemQuantityAndPrice: { flex: 1, display: "flex", flexDirection: "row", justifyContent: "space-between" },
-  itemQuantity: { display: "flex", flexDirection: "row" },
+  itemQuantity: { display: "flex", flexDirection: "row", color: "#000000" },
   addRemoveButton: { color: "#cd6b62", height: "25px", marginRight: "7px", marginLeft: "7px", cursor: "pointer" },
+
+  //Css for shoping item popwup window:
+  dialogStyle: {
+    position: "absolute" as "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 1000,
+    height: 450,
+    background: "#ffffff",
+    border: "2px solid #ffffff",
+    borderRadius: 15,
+    padding: 4,
+    display: "flex",
+    flexDirection: "row",
+  },
 }));
 export default useStyles;

@@ -1,4 +1,4 @@
-import { Avatar, Box, Typography } from "@mui/material";
+import { Avatar, Box, Tooltip, Typography } from "@mui/material";
 import { NextPage } from "next";
 import React, { useContext } from "react";
 import useStyles from "../../utils/shoppingCart/shoppingCart.styles";
@@ -27,7 +27,9 @@ const CartItem: NextPage<IStore> = ({ ...props }) => {
             }}
             sx={{ cursor: "pointer" }}
           >
-            <ClearIcon />
+            <Tooltip title="Remove item">
+              <ClearIcon />
+            </Tooltip>
           </Box>
         </Box>
         <Box className={classes.itemQuantityAndPrice}>
