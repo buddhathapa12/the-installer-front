@@ -1,11 +1,12 @@
 import { Box, Button, Modal, Typography } from "@mui/material";
 import Image from "next/image";
 import { NextPage } from "next";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { IProduct } from "../../fixtures/BookOnline/productList";
 import { UserContext } from "../../context/userContext";
-import { makeStyles } from "@mui/styles";
 import useStyles from "../../utils/shoppingCart/shoppingCart.styles";
+import { useSession } from "next-auth/react";
+import LoginComponent from "../signIn/signIn";
 
 interface ItemWindowInterface {
   data: IProduct;
@@ -15,7 +16,13 @@ interface ItemWindowInterface {
 
 const ItemWindow: NextPage<ItemWindowInterface> = ({ ...props }) => {
   const classes = useStyles();
+  const { data: session, status } = useSession();
   const { addCartItem } = useContext(UserContext);
+
+  const [openLoginComponent, setOpenLoginComponent] = useState(false);
+  const handleOpen = () => setOpenLoginComponent(true);
+  const handleClose = () => setOpenLoginComponent(false);
+
   return (
     <Modal
       open={props.open}
@@ -38,13 +45,21 @@ const ItemWindow: NextPage<ItemWindowInterface> = ({ ...props }) => {
             variant="contained"
             color="primary"
             onClick={() => {
-              addCartItem(props.data);
+              status == "authenticated" ? addCartItem(props.data) : handleOpen();
             }}
             style={{ width: 200, margin: 25, flex: 1, alignSelf: "center" }}
           >
             Add to cart
           </Button>
         </Box>
+        <Modal
+          open={openLoginComponent}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <LoginComponent />
+        </Modal>
       </Box>
     </Modal>
   );

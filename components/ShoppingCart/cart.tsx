@@ -1,14 +1,23 @@
 import React, { useContext, useState } from "react";
-import { Badge, Box, Button, Drawer, Tooltip, Typography } from "@mui/material";
+import { Badge, Box, Button, Drawer, Modal, Tooltip, Typography } from "@mui/material";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import { UserContext } from "../../context/userContext";
 import CartItem from "./cartItem";
 import useStyles from "../../utils/shoppingCart/shoppingCart.styles";
 import CloseIcon from "@mui/icons-material/Close";
+import { useSession } from "next-auth/react";
+import LoginComponent from "../signIn/signIn";
+
 const Cart = () => {
   const classes = useStyles();
+
+  const { data: session, status } = useSession();
+
   const { cartItems, getTotalAmount } = useContext(UserContext);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [openLoginComponent, setOpenLoginComponent] = useState(false);
+  const handleLoginComponentOpen = () => setOpenLoginComponent(true);
+  const handleLoginComponentClose = () => setOpenLoginComponent(false);
   const cartContent = cartItems.map((cartItem, index) => <CartItem key={index} {...cartItem} />);
   return (
     <Badge badgeContent={cartItems.length} color="warning">
@@ -74,9 +83,20 @@ const Cart = () => {
                 color: "red",
               },
             }}
+            onClick={() => {
+              status == "authenticated" ? alert("This feature is under maintenance!!") : handleLoginComponentOpen();
+            }}
           >
             Checkout
           </Button>
+          <Modal
+            open={openLoginComponent}
+            onClose={handleLoginComponentClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <LoginComponent />
+          </Modal>
         </Box>
       </Drawer>
     </Badge>
