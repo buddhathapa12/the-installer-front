@@ -72,7 +72,7 @@ const Cart = () => {
         {cartContent}
         <Box className={classes.totalAndCheckoutContainer}>
           <Box style={{ alignSelf: "center", fontWeight: 500, fontSize: 20 }}>
-            Subtotal: {getTotalAmount(cartItems)}
+            Subtotal: ${getTotalAmount(cartItems)}
           </Box>
           <Button
             sx={{

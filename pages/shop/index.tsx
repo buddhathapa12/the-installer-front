@@ -9,6 +9,7 @@ import {
   PaginationItem,
 } from "@mui/material";
 import { Box } from "@mui/system";
+import { NextPage } from "next";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import ShopItemList from "../../components/ShopItems";
@@ -30,40 +31,43 @@ type SORTING_OPTION_TYPES =
   | SORTING_OPTIONS.PRICE_HIGH_TO_LOW
   | SORTING_OPTIONS.PRICE_LOW_TO_HIGH;
 
-const Shop = () => {
+export interface IProductList {
+  products: IProduct[];
+}
+const Shop: NextPage<IProductList> = ({ products }) => {
   const styles = useStyles();
   const PageSize = 16;
   const totalPages = 2;
 
   const [sortBy, setSortBy] = useState<SORTING_OPTIONS>(SORTING_OPTIONS.DEFAULT);
-  const [productData, setProductData] = useState<IProduct[]>(ProductsData.slice(0, 16));
+  const [productData, setProductData] = useState<IProduct[]>(products.slice(0, 16));
   const [page, setPage] = useState<number>(1);
 
   useEffect(() => {
     const start = Math.floor(page / totalPages) ? PageSize : 0;
-    const end = page * PageSize > ProductsData.length ? ProductsData.length : page * PageSize;
+    const end = page * PageSize > products.length ? products.length : page * PageSize;
     if (sortBy === SORTING_OPTIONS.DEFAULT) {
-      const sortedData = ProductsData.sort((a, b) => (a.id < b.id ? -1 : 1));
+      const sortedData = products.sort((a, b) => (a.id < b.id ? -1 : 1));
       setProductData(sortedData.slice(start, end));
     } else if (sortBy === SORTING_OPTIONS.NAME_A_TO_Z) {
-      const sortedData = ProductsData.sort((a, b) => (a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1));
+      const sortedData = products.sort((a, b) => (a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1));
       setProductData(sortedData.slice(start, end));
     } else if (sortBy === SORTING_OPTIONS.NAME_Z_TO_A) {
-      const sortedData = ProductsData.sort((a, b) => (a.name.toLowerCase() > b.name.toLowerCase() ? -1 : 1));
+      const sortedData = products.sort((a, b) => (a.name.toLowerCase() > b.name.toLowerCase() ? -1 : 1));
       setProductData(sortedData.slice(start, end));
     } else if (sortBy === SORTING_OPTIONS.PRICE_LOW_TO_HIGH) {
-      const sortedData = ProductsData.sort((a, b) => ((a.price || 0) < (b.price || 0) ? -1 : 1));
+      const sortedData = products.sort((a, b) => ((a.price || 0) < (b.price || 0) ? -1 : 1));
       setProductData(sortedData.slice(start, end));
     } else if (sortBy === SORTING_OPTIONS.PRICE_HIGH_TO_LOW) {
-      const sortedData = ProductsData.sort((a, b) => ((a.price || 0) > (b.price || 0) ? -1 : 1));
+      const sortedData = products.sort((a, b) => ((a.price || 0) > (b.price || 0) ? -1 : 1));
       setProductData(sortedData.slice(start, end));
     }
-  }, [page, sortBy]);
+  }, [page, sortBy, products]);
 
   useEffect(() => {
     const start = Math.floor(page / totalPages) ? PageSize : 0;
-    const end = page * PageSize > ProductsData.length ? ProductsData.length : page * PageSize;
-    setProductData(ProductsData.slice(start, end));
+    const end = page * PageSize > products.length ? products.length : page * PageSize;
+    setProductData(products.slice(start, end));
   }, [page]);
 
   return (
@@ -123,5 +127,13 @@ const Shop = () => {
     </Box>
   );
 };
+
+export async function getStaticProps() {
+  const res = await fetch(`${process.env.NEXTAUTH_URL}/api/product`);
+  const products: IProduct[] = await res.json();
+  return {
+    props: { products }, // will be passed to the page component as props
+  };
+}
 
 export default Shop;

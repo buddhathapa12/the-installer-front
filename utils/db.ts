@@ -2,7 +2,6 @@ import mongoose, { ConnectionStates } from "mongoose";
 
 const connectToDatabase = async () => {
   const db = await mongoose.connect(process.env.MONGODB_URI!);
-  console.log(db, "Database");
   return db;
 };
 

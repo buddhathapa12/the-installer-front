@@ -1,4 +1,7 @@
+import mongoose from "mongoose";
+
 export interface IProduct {
+  _id?: mongoose.ObjectId;
   id: number;
   imageUrl: string;
   name: string;
