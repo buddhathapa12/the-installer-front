@@ -5,14 +5,13 @@ import useStyles from "../../utils/login/login.styles";
 import Image from "next/image";
 import { useSession, signIn } from "next-auth/react";
 
-const Login = () => {
+const LoginComponent = () => {
   //Authentication
   const { data: session } = useSession();
   const router = useRouter();
 
   const classes = useStyles();
 
-  //   if (!session) {
   return (
     <Box className={classes.loginCont}>
       <Typography className={classes.titleCont}>Please login with google before shopping</Typography>{" "}
@@ -32,10 +31,6 @@ const Login = () => {
       </Box>
     </Box>
   );
-  //   }
-  //   else {
-  //     return;
-  //   }
 };
 
-export default Login;
+export default LoginComponent;

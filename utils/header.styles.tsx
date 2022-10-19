@@ -62,17 +62,6 @@ const useStyles = makeStyles({
 
   cart: {
     backgroundColor: "transparent",
-    transform: "scale(1.5)",
-    // display: 'inline-block',
-  },
-
-  cartIcon: {
-    color: "#ffffff",
-    fontSize: "30px",
-    "&:hover": {
-      color: "red",
-    },
-    "&::before": {},
   },
 
   hamBurgerCont: {

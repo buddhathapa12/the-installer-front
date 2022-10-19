@@ -1,5 +1,5 @@
-import { AppBar, CssBaseline, Toolbar, Typography } from "@mui/material";
-import React, { useState, useEffect } from "react";
+import { AppBar, CssBaseline, Toolbar, Typography, Badge } from "@mui/material";
+import React, { useState, useEffect, useContext } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import useStyles from "../utils/header.styles";
@@ -7,7 +7,7 @@ import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import { useSession, signIn, signOut } from "next-auth/react";
-
+import Cart from "../components/ShoppingCart/cart";
 const Header = () => {
   const [mobileView, setmobileView] = useState(false);
   const [active, setActive] = useState(false);
@@ -129,6 +129,7 @@ const Header = () => {
       </ul>
     );
   };
+
   return (
     <div>
       <AppBar className={classes.navbar}>
@@ -149,18 +150,7 @@ const Header = () => {
           <div className={classes.navbarCont}>{mobileView ? displayMobile() : displayDesktop()}</div>
           <div className={classes.cartCont}>
             <div className={classes.cart}>
-              {/* <span className={classes.cartIcon}>
-                <ShoppingBagOutlinedIcon />
-              </span> */}
-              {session ? (
-                <>
-                  <button onClick={() => signOut()}>Sign out</button>
-                </>
-              ) : (
-                <>
-                  <button onClick={() => signIn("google")}>Sign in</button>
-                </>
-              )}
+              <Cart />
             </div>
           </div>
         </Toolbar>
